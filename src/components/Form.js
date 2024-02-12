@@ -1,49 +1,34 @@
-import React, { Component } from "react";
-
-class Form extends Component {
+import React from "react";
+class Form extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "",
-      email: "",
+      name: "Tanishq Doke",
+      email: "tanishq.doke@gmail.com",
     };
   }
-
-  handleInputChange = (event) => {
-    const { name, value } = event.target;
-    this.setState({
-      [name]: value,
-    });
+  changeName = () => {
+    this.setState({ name: document.getElementById("name").value });
+  };
+  changeEmail = () => {
+    this.setState({ email: document.getElementById("email").value });
   };
 
   render() {
     return (
-      <>
-        <h1>Form</h1>
-        <form>
-          <label>
-            Name:
-            <input
-              type="text"
-              name="name"
-              value={this.state.name}
-              onChange={this.handleInputChange}
-            />
-          </label>
-          <br />
-          <label>
-            Email:
-            <input
-              type="email"
-              name="email"
-              value={this.state.email}
-              onChange={this.handleInputChange}
-            />
-          </label>
-        </form>
-      </>
+      <div>
+        <h4>Enter the new Name</h4>
+        <input type="text" placeholder="Name" id="name"></input>
+        <button onClick={this.changeName}>Change It</button>
+
+        <h4>Enter the new Email</h4>
+        <input type="text" placeholder="Email" id="email"></input>
+        <button onClick={this.changeEmail}>Change Now</button>
+
+        <h4>Name: {this.state.name}</h4>
+        <h4>Email : {this.state.email}</h4>
+      </div>
     );
   }
 }
-
 export default Form;
