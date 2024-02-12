@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Case Swapper</title>
+    <script>
+      // JavaScript function to swap the case of each character in a string
+      function swapCase(inputString) {
+        // Use the split, map, and join methods to swap the case of each character
+        return inputString
+          .split("")
+          .map((char) => {
+            if (char === char.toUpperCase()) {
+              return char.toLowerCase();
+            } else {
+              return char.toUpperCase();
+            }
+          })
+          .join("");
+      }
+
+      // Function to handle form submission
+      function handleSubmit() {
+        // Get the input value from the form
+        const userInput = document.getElementById("userInput").value;
+
+        // Swap the case of each character in the input string
+        const result = swapCase(userInput);
+
+        // Display the result on the webpage
+        document.getElementById("result").innerText = result;
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Case Swapper</h1>
+
+    <form onsubmit="event.preventDefault(); handleSubmit();">
+      <label for="userInput">Enter a string:</label>
+      <input
+        type="text"
+        id="userInput"
+        placeholder="The Quick Brown Fox"
+        required
+      />
+      <button type="submit">Swap Case</button>
+    </form>
+
+    <p id="result"></p>
+  </body>
+</html>

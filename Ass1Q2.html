@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>First Elements of Array</title>
+    <script>
+      // JavaScript function to get the first 'n' elements of an array
+      function getFirstElements(arr, n = 1) {
+        // Use the slice method to get the first 'n' elements of the array
+        return arr.slice(0, n);
+      }
+
+      // Function to handle form submission
+      function handleSubmit() {
+        // Get the input value from the form
+        const userInput = document.getElementById("userInput").value;
+
+        // Parse the user input as an array
+        const userArray = JSON.parse(userInput);
+
+        // Get the first element or first 'n' elements of the array
+        const result = getFirstElements(userArray);
+
+        // Display the result on the webpage
+        document.getElementById("result").innerText = JSON.stringify(result);
+      }
+    </script>
+  </head>
+  <body>
+    <h1>First Elements of Array</h1>
+
+    <form onsubmit="event.preventDefault(); handleSubmit();">
+      <label for="userInput">Enter an array:</label>
+      <input type="text" id="userInput" placeholder="[1, 2, 3]" required />
+      <button type="submit">Get First Elements</button>
+    </form>
+
+    <p id="result"></p>
+  </body>
+</html>
